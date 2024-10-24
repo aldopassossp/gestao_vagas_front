@@ -1,0 +1,25 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Primeira Página HTML com Thymeleaf</title>
+    </head>
+
+    <body>
+        <h1>Primeira Página HTML com Thymeleaf</h1>
+        <p th:text="${mensagemDaController}">Mensagem da Controller</p>
+
+        <form method="post"  th:action="@{/create}" th:object="${pessoa}">
+
+            Nome do candidato:
+            <input type="text" name="nome" />
+            <br/>
+            E-mail:
+            <input type="text" name="email" />
+            <br/>
+            Usuário:
+            <input type="text" name="usuario" />
+            <br/>
+            <br/>
+            <button>Cadastrar Candidato</button>
+        </form>
+    </body>
+</html>

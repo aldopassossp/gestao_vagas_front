@@ -1,0 +1,27 @@
+package br.com.aldopassos.front_gestao_vagas.security;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableMethodSecurity
+public class SecurityConfig {
+    
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+        http.authorizeRequests(auth -> {
+            auth.requestMatchers("/candidate/login").permitAll()
+                .requestMatchers("/candidate/create").permitAll()
+                .requestMatchers("/candidate/signIn").permitAll()
+                .requestMatchers("/candidate/signOut").permitAll()
+                .requestMatchers("/company/create").permitAll()
+                .requestMatchers("/company/sigIn").permitAll()
+                .requestMatchers("/company/login").permitAll();
+            auth.anyRequest().authenticated();
+        })
+        .formLogin(form -> form.loginPage("/candidate/login"));
+        
+        return http.build();
+    }
+}

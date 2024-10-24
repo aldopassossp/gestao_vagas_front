@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"> </script>
+        <title>Listagem de Vagas</title>
+
+    </head>
+
+    <body class="bg-white h-screen flex flex-col">
+        
+        <nav class="bg-zinc-900 p-4 flex justify-between items-center">
+            <div>
+                <a href="/company/profile" class="text-white">
+                    Profile
+                </a>
+                <a href="/company/jobs" class="text-white">
+                    Vagas
+                </a>
+                <a href="/company/jobs" class="text-white">
+                    Listagem
+                </a>
+                <a href="/company/createJob" class="text-white">
+                    Cadastrar Vaga
+                </a>
+                <a href="/company/signOut" class="text-white">
+                    Sair
+                </a>
+            </div>
+        </nav>
+        <p class="text-center text-3xl pt-5">Listagem de Vagas</p>
+        <div class="flex-grow flex pt-10 justify-center">
+            <div class="pb-3 w-9/12 max-w.full">
+                <table class="w-full">
+                    <thead>
+                         <tr class="bg-gray-200">
+                            <th class="text-left py-2 px-4">ID</th>
+                            <th class="text-left py-2 px-4">Descrição</th>
+                            <th class="text-left py-2 px-4">Benefícios</th>
+                            <th class="text-left py-2 px-4">Nível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="job: ${jobs}">
+                            <td class="text-left py-2 px-4" th:text="${job.id}"></td>
+                            <td class="text-left py-2 px-4" th:text="${job.description}"></td>
+                            <td class="text-left py-2 px-4" th:text="${job.benefits}"></td>
+                            <td class="text-left py-2 px-4" th:text="${job.level}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        
+
+    </body>
+
+
+</html>

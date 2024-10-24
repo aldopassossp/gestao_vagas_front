@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Informações do Condidato</title>
+    </head>
+
+    <body>
+        <h1>Informações do candidato</h1>
+        
+        <form th:action="@{/create}" th:object="${pessoa}">
+
+            <p>Nome do candidato:</p> <p th:text="${pessoa.nome}"></p>
+            <br/>
+            <p>Email:</p> <p th:text="${pessoa.email}"></p>
+            <br/>
+            <p>Usuário:</p> <p th:text="${pessoa.usuario}"></p>
+            <br/>
+            <br/>
+        </form>
+    </body>
+</html>
